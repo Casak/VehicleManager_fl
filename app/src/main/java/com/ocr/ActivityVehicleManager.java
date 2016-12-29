@@ -46,7 +46,15 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 	private int[] mNumberButtonIds = {R.id.num0, R.id.num1, R.id.num2, R.id.num3, R.id.num4, R.id.num5,
 			R.id.num6, R.id.num7, R.id.num8, R.id.num9};
 	private AutoCompleteTextView mDefectsAutoTextView;
-	private String _strCol = "Vehicle ID" + ", " + "Vehicle Time" + ", " + "OIL" + ", " + "COOLANT" + ", " + "DEF" + ", " + "FUEL" + ", " + "FUEL Time" + ", " + "DEFECTS" + ", " + "Time Diff" +  "\n";
+	private String _strCol = "Vehicle ID" + ", " +
+			"Vehicle Time" + ", " +
+			"OIL" + ", " +
+			"COOLANT" + ", " +
+			"DEF" + ", " +
+			"FUEL" + ", " +
+			"FUEL Time" + ", " +
+			"DEFECTS" + ", " +
+			"Time Diff" +  "\n";
 	private String _strTimeVehilce;
 	private String _strTimeFuel;
 
@@ -219,6 +227,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		if( strFuel.equals(""))
 			strFuel = "0";
 
+
 		String strDefects = mDefectsAutoTextView.getText().toString();
 
 		java.text.DateFormat df = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -253,7 +262,15 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		}
 
 		try {
-			String strLine = strVehicleID + ", " + _strTimeVehilce + ", " + strOil + ", " + strCoolant + ", " + strDef + ", " + strFuel + ", " + _strTimeFuel + ", " + strDefects + ", " + strDiff + "\n";
+			String strLine = strVehicleID + ", " +
+					_strTimeVehilce + ", " +
+					strOil + ", " +
+					strCoolant + ", " +
+					strDef + ", " +
+					strFuel + ", " +
+					_strTimeFuel + ", " +
+					strDefects + ", " +
+					strDiff + "\n";
 			  
 			FileWriter outWritter = new FileWriter(file, true);
 			BufferedWriter bufferWritter = new BufferedWriter(outWritter);

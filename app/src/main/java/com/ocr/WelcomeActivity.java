@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class WelcomeActivity extends Activity {
 
@@ -21,7 +22,11 @@ public class WelcomeActivity extends Activity {
 	public final static String ENGINE_FILE = "eng";
 	public final static String RESULT_SUCCESS = "Success!";
 	public final static String RESULT_FAIL = "Fail!";
-	
+
+    private EditText mNameEditText;
+    private EditText mEmployeeIdEditText;
+    private EditText mFacilityEditText;
+    private EditText mServiceLineEditText;
 
 	  private int langSelectIndex = 0;
 	  AsyncTask<String, Void, String> copytask;
@@ -48,7 +53,7 @@ public class WelcomeActivity extends Activity {
 		setContentView(R.layout.welcome);
 		
 		createCopyTaskAndExecute();
-		
+
 	    // Show an StartApp button.
 	    View doneBtnStartApp = findViewById(R.id.btnStartApp);
 	    doneBtnStartApp.setOnClickListener(startAppListener);
