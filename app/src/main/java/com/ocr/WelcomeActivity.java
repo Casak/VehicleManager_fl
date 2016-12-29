@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -29,6 +30,8 @@ public class WelcomeActivity extends Activity {
     private EditText mFacilityEditText;
     private EditText mServiceLineEditText;
 
+    private Context context;
+
 	  private int langSelectIndex = 0;
 	  AsyncTask<String, Void, String> copytask;
 
@@ -41,9 +44,10 @@ public class WelcomeActivity extends Activity {
                 String facility = mFacilityEditText.getText().toString();
                 String serviceLine = mServiceLineEditText.getText().toString();
 
-                if(name.equals("") || employeeId.equals("") || facility.equals("") || serviceLine.equals(""))
-                    Log.d("aa","aa0");
-
+                if(name.equals("") || employeeId.equals("") || facility.equals("") || serviceLine.equals("")) {
+                    Toast.makeText(context, "Please, fill all fields!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 		        //String items[] = {
 				//		"From Camera",
 				//		"From Gallary"};
@@ -63,6 +67,7 @@ public class WelcomeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        context = getApplicationContext();
 		setContentView(R.layout.welcome);
 
 		createCopyTaskAndExecute();
