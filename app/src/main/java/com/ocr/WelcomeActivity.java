@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class WelcomeActivity extends Activity {
 
@@ -30,29 +31,46 @@ public class WelcomeActivity extends Activity {
 
 	  private int langSelectIndex = 0;
 	  AsyncTask<String, Void, String> copytask;
-	
+
 	  private final Button.OnClickListener startAppListener = new Button.OnClickListener() {
 		    @Override
 		    public void onClick(View view) {
-		        
+
+                String name = mNameEditText.getText().toString();
+                String employeeId = mEmployeeIdEditText.getText().toString();
+                String facility = mFacilityEditText.getText().toString();
+                String serviceLine = mServiceLineEditText.getText().toString();
+
+                if(name.equals("") || employeeId.equals("") || facility.equals("") || serviceLine.equals(""))
+                    Log.d("aa","aa0");
+
 		        //String items[] = {
 				//		"From Camera",
 				//		"From Gallary"};
         		Intent intent = new Intent(WelcomeActivity.this, ActivityVehicleManager.class);
         		intent.putExtra("recog_text", "");
+        		intent.putExtra("name_edit_text", name);
+        		intent.putExtra("employee_id_edit_text", employeeId);
+        		intent.putExtra("facility_edit_text", facility);
+        		intent.putExtra("service_line_edit_text", serviceLine);
 		    	//intent = new Intent().setClass(WelcomeActivity.this, PreferencesActivity.class);
 		        startActivity(intent);
-		        
+
 		        finish();
 		    }
 		  };
-		  
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome);
-		
+
 		createCopyTaskAndExecute();
+
+        mNameEditText = (EditText)findViewById(R.id.name_edit);
+        mEmployeeIdEditText = (EditText)findViewById(R.id.employeeId_edit);
+        mFacilityEditText = (EditText)findViewById(R.id.facility_edit);
+        mServiceLineEditText = (EditText)findViewById(R.id.service_line_edit);
 
 	    // Show an StartApp button.
 	    View doneBtnStartApp = findViewById(R.id.btnStartApp);
@@ -76,7 +94,7 @@ public class WelcomeActivity extends Activity {
                 String tempPath = fileTessdataDir.getAbsolutePath() + File.separator + ENGINE_FILE + ".temp";
                 String targetPath = fileTessdataDir.getAbsolutePath() + File.separator + ENGINE_FILE + ".traineddata";
                 Log.e("==================", targetPath);
-                
+
                 File targetFile = new File(targetPath);
                 // If already exists.
                 if (targetFile.exists() && targetFile.isFile())
@@ -121,7 +139,7 @@ public class WelcomeActivity extends Activity {
         };
         copytask.execute("");
     }
-    
+
     // Copy Resource to Target.
     private void copyResourceToTarget(int resId, String target) throws Exception{
         InputStream in = getResources().openRawResource(resId);
@@ -143,15 +161,15 @@ public class WelcomeActivity extends Activity {
             out.close();
         }
     }
-	
-	
+
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		
+
 		if (resultCode != Activity.RESULT_OK) return;
-		
+
 		String imgPath = "";
 		if (requestCode == GlobalConstant.TAKE_GALLERY) {
 			Uri imgUri = data.getData();
@@ -160,11 +178,11 @@ public class WelcomeActivity extends Activity {
 			Intent intent = new Intent(WelcomeActivity.this, ImageActivity.class);
 			intent.putExtra("image_path", imgPath);
 			startActivity(intent);*/
-			
+
 		}/* else if (requestCode == GlobalConstant.TAKE_CAMERA) {
 			imgPath = GlobalConstant.getCameraTempFilePath();
 		}*/
-		
+
 		Log.d(getClass().getName(), "Path:" + imgPath);
 	}
 }

@@ -43,6 +43,11 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 	private EditText mDefEditText;
 	private EditText mCoolantEditText;
 	private EditText mFuelEditText;
+	private String name;
+	private String employeeId;
+	private String facility;
+	private String serviceLine;
+
 	private int[] mNumberButtonIds = {R.id.num0, R.id.num1, R.id.num2, R.id.num3, R.id.num4, R.id.num5,
 			R.id.num6, R.id.num7, R.id.num8, R.id.num9};
 	private AutoCompleteTextView mDefectsAutoTextView;
@@ -73,6 +78,10 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		try	{
 			String strRecogText = getIntent().getExtras().getString("recog_text");
 			mVehicleEditText.setText(strRecogText);
+			name = getIntent().getExtras().getString("name_edit_text");
+			employeeId = getIntent().getExtras().getString("employee_id_edit_text");
+			facility = getIntent().getExtras().getString("facility_edit_text");
+			serviceLine = getIntent().getExtras().getString("service_line_edit_text");
 		}catch(Exception e)	{
 			e.printStackTrace();
 		}
