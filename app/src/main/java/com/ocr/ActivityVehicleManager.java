@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -65,7 +66,8 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 			"Name" + ", " +
 			"EmployeeID" + ", " +
 			"Facility" + ", " +
-			"ServiceLine" +  "\n";
+			"ServiceLine" + ", " +
+			"AndroidID" +  "\n";
 	private String _strTimeVehilce;
 	private String _strTimeFuel;
 
@@ -297,7 +299,8 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 					name + ", " +
 					employeeId + ", " +
 					facility + ", " +
-					serviceLine + "\n";
+					serviceLine + ", " +
+					Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID) + "\n";
 			  
 			FileWriter outWritter = new FileWriter(file, true);
 			BufferedWriter bufferWritter = new BufferedWriter(outWritter);
