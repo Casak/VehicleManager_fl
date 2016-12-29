@@ -294,8 +294,8 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 					_strTimeFuel + ", " +
 					strDefects + ", " +
 					strDiff + ", " +
-					//mileage + ", " +
-					//date + ", " +
+					"mileage" + ", " +
+					"date" + ", " +
 					name + ", " +
 					employeeId + ", " +
 					facility + ", " +
