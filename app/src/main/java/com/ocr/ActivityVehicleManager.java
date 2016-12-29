@@ -116,6 +116,12 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 				}
 			});
 		}
+		findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mCurFocusText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+			}
+		});
 		
         //android:entries="@array/defects_array"
         //android:prompt="@string/defects" 
@@ -292,13 +298,6 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 					employeeId + ", " +
 					facility + ", " +
 					serviceLine + "\n";
-
-			/*"Mileage" + ", " +
-			"Date" + ", " +
-			"Name" + ", " +
-			"EmployeeID" + ", " +
-			"Facility" + ", " +
-			"ServiceLine" +  "\n";*/
 			  
 			FileWriter outWritter = new FileWriter(file, true);
 			BufferedWriter bufferWritter = new BufferedWriter(outWritter);
