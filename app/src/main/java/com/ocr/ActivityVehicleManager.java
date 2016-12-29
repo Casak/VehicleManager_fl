@@ -59,7 +59,13 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 			"FUEL" + ", " +
 			"FUEL Time" + ", " +
 			"DEFECTS" + ", " +
-			"Time Diff" +  "\n";
+			"Time Diff" + ", " +
+			"Mileage" + ", " +
+			"Date" + ", " +
+			"Name" + ", " +
+			"EmployeeID" + ", " +
+			"Facility" + ", " +
+			"ServiceLine" +  "\n";
 	private String _strTimeVehilce;
 	private String _strTimeFuel;
 
@@ -279,7 +285,20 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 					strFuel + ", " +
 					_strTimeFuel + ", " +
 					strDefects + ", " +
-					strDiff + "\n";
+					strDiff + ", " +
+					//mileage + ", " +
+					//date + ", " +
+					name + ", " +
+					employeeId + ", " +
+					facility + ", " +
+					serviceLine + "\n";
+
+			/*"Mileage" + ", " +
+			"Date" + ", " +
+			"Name" + ", " +
+			"EmployeeID" + ", " +
+			"Facility" + ", " +
+			"ServiceLine" +  "\n";*/
 			  
 			FileWriter outWritter = new FileWriter(file, true);
 			BufferedWriter bufferWritter = new BufferedWriter(outWritter);
