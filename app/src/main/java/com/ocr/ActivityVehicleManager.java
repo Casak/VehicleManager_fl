@@ -142,9 +142,10 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		findViewById(R.id.defects_layout).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(getApplicationContext(), "NEW ACTIVITY WILL OPENS HERE", Toast.LENGTH_SHORT)
-						.show();
-
+				Toast.makeText(getApplicationContext(),
+						"NEW ACTIVITY WILL OPENS HERE, FILES ARE SENDING TO THE WEBSERVICE",
+						Toast.LENGTH_SHORT).show();
+				sendFileToServer();
 			}
 		});
 		
@@ -321,6 +322,24 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		  
 		return true;
 	  }
+
+	private void sendFileToServer() {
+		final String successResponse = "[{\"success\":\"1\",\"msg\":\"Record successfully inserted\"}]".intern();
+		final String failResponse = "[{\"success\":\"2\",\"msg\":\"Record Not inserted\"}]".intern();
+		SenderTask task = new SenderTask(new SenderTask.AsyncResponse() {
+			@Override
+			public void processFinish(String output) {
+				if (output.equals(successResponse)) {
+					Log.d("Data inserted", ", service response is: " + output);
+				}
+				else if (output.equals(failResponse))
+					Log.d("Data not inserted", ", service response is: " + output);
+				else
+					Log.d("Inserting data problem" , ", service response is: " + output);
+			}
+		});
+		task.execute();
+	}
 	
 	  /** Finds the proper location on the SD card where we can save files. */
 	  private File getStorageDirectory() {
