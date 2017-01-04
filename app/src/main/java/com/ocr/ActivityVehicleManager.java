@@ -41,6 +41,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 	
 	private EditText mVehicleEditText;
 	private EditText mOilEditText;
+	private EditText mMileageEditText;
 	private EditText mDefEditText;
 	private EditText mCoolantEditText;
 	private EditText mFuelEditText;
@@ -95,6 +96,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		}
 
 		mOilEditText = (EditText)findViewById(R.id.oil_edit);
+		mMileageEditText = (EditText)findViewById(R.id.mileage_edit);
 		mDefEditText = (EditText)findViewById(R.id.def_edit);
 		mCoolantEditText = (EditText)findViewById(R.id.coolant_edit);
 		mFuelEditText = (EditText)findViewById(R.id.fuel_edit);
@@ -104,6 +106,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		//mFuelEditText.setText("0");
 		
 		mOilEditText.setOnFocusChangeListener(this);
+		mMileageEditText.setOnFocusChangeListener(this);
 		mDefEditText.setOnFocusChangeListener(this);
 		mCoolantEditText.setOnFocusChangeListener(this);
 		mFuelEditText.setOnFocusChangeListener(this);
@@ -155,6 +158,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 			      
 			    mVehicleEditText.setText("");
 				mOilEditText.setText("");
+				mMileageEditText.setText("");
 				mDefEditText.setText("");
 				mCoolantEditText.setText("");
 				mFuelEditText.setText("");
@@ -236,8 +240,11 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 			toast.show();
 			return false;
 		}
-		
+
 		String strOil = mOilEditText.getText().toString();
+		if( strOil.equals(""))
+			strOil = "0";
+		String strMileage = mMileageEditText.getText().toString();
 		if( strOil.equals(""))
 			strOil = "0";
 		String strCoolant = mCoolantEditText.getText().toString();
@@ -294,8 +301,8 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 					_strTimeFuel + ", " +
 					strDefects + ", " +
 					strDiff + ", " +
-					"mileage" + ", " +
-					"date" + ", " +
+					strMileage + ", " +
+					_strTimeVehilce.split(" ")[0] + ", " +
 					name + ", " +
 					employeeId + ", " +
 					facility + ", " +
