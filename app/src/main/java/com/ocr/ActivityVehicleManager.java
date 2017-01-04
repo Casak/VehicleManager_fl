@@ -52,7 +52,6 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 
 	private int[] mNumberButtonIds = {R.id.num0, R.id.num1, R.id.num2, R.id.num3, R.id.num4, R.id.num5,
 			R.id.num6, R.id.num7, R.id.num8, R.id.num9};
-	private AutoCompleteTextView mDefectsAutoTextView;
 	private String _strCol = "Vehicle ID" + ", " +
 			"Vehicle Time" + ", " +
 			"OIL" + ", " +
@@ -130,15 +129,9 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		
         //android:entries="@array/defects_array"
         //android:prompt="@string/defects" 
-		mDefectsAutoTextView = (AutoCompleteTextView)findViewById(R.id.autoTextView_defects);
 		String[] strArrayDefects = getResources().getStringArray(R.array.defects_array);
 		// Create the adapter and set it to the AutoCompleteTextView 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArrayDefects);
-		mDefectsAutoTextView.setThreshold(1);
-		mDefectsAutoTextView.setAdapter(adapter);
-		mDefectsAutoTextView.setTextColor(getResources().getColor(R.color.auto_textview));
-		mDefectsAutoTextView.setText("");
-		 
+
 		mVehicleEditText.requestFocus();
 		mCurFocusText = mVehicleEditText;
 		
@@ -162,8 +155,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 				mDefEditText.setText("");
 				mCoolantEditText.setText("");
 				mFuelEditText.setText("");
-				mDefectsAutoTextView.setText("");
-				
+
 				_dateVehicle = Calendar.getInstance().getTime();
 				_dateFuel = Calendar.getInstance().getTime();
 			}
@@ -258,7 +250,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 			strFuel = "0";
 
 
-		String strDefects = mDefectsAutoTextView.getText().toString();
+		String strDefects = "";
 
 		java.text.DateFormat df = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		_strTimeVehilce = df.format(_dateVehicle);	
