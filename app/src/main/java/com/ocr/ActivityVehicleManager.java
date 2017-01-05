@@ -15,6 +15,8 @@ import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -82,6 +84,8 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		super.onCreate(icicle);
 		
 		setContentView(R.layout.activity_vehiclemanager);
+
+
 		mVehicleEditText = (EditText)findViewById(R.id.vehicle_id_edit);
 		mVehicleEditText.setOnFocusChangeListener(this);
 		try	{
@@ -142,12 +146,8 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		findViewById(R.id.defects_layout).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(getApplicationContext(),
-						"NEW ACTIVITY WILL OPENS HERE, FILES ARE SENDING TO THE WEBSERVICE",
-						Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(getApplicationContext(), DefectReportActivity.class);
 				startActivity(intent);
-				sendFileToServer();
 			}
 		});
 		
@@ -324,24 +324,6 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 		  
 		return true;
 	  }
-
-	private void sendFileToServer() {
-		final String successResponse = "[{\"success\":\"1\",\"msg\":\"Record successfully inserted\"}]".intern();
-		final String failResponse = "[{\"success\":\"2\",\"msg\":\"Record Not inserted\"}]".intern();
-		SenderTask task = new SenderTask(new SenderTask.AsyncResponse() {
-			@Override
-			public void processFinish(String output) {
-				if (output.equals(successResponse)) {
-					Log.d("Data inserted", ", service response is: " + output);
-				}
-				else if (output.equals(failResponse))
-					Log.d("Data not inserted", ", service response is: " + output);
-				else
-					Log.d("Inserting data problem" , ", service response is: " + output);
-			}
-		});
-		task.execute();
-	}
 	
 	  /** Finds the proper location on the SD card where we can save files. */
 	  private File getStorageDirectory() {
