@@ -1,0 +1,256 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/welcome_view"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ocr.WelcomeActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="DEFECT REPORT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="Exterior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Major fluid leaks and levels (specify below)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/exterior_fluid_leaks"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Windshield washers and/or wiper arms, saddles - loose, damage, missing and operation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/exterior_washers_wiper_arms_saddles"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Exterior mirrors(open/closed-side)-loose, damage, missing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/exterior_mirrors"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Exterior body damage and/or audible air leaks (specify below)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/exterior_body"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Exterior loghts-damage, light out, missing lenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/exterior_lights"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Tires-side wall damage and/or visual flat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/exterior_tires"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="Interior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Interior mirrors-loose, damage, missing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/interior_mirrors"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Interior body damage(specify below)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/interior_body"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Scratchitti (specify below)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/interior_scratchitti"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Interior lights-damage, light out, missing lenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/interior_lights"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Bell cords and buttons-loose, damage, missing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/interior_bell_buttons"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Stanchion bars-loose, damage, missing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/interior_bars"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Passenger seats and frames-loose, damage, missing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/interior_seats"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="Indicator lights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="HEV(hybrid) and/or DPF light on(circle wrench)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/indicator_light"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Break wear indicator(Nova)-red or yellow light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/indicator_break"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="Operator controls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Horn-no sound, horn button for damage, missing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/operator_horn"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Bus side mounted indicator light and/or floor switches-damage, light out missing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/operator_indicator_light"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Entrance and exit doors, using operators controls-damage, non-functional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/operator_doors"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="Ancillary system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Signal priority transponder - red light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/ancillary_red_light"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Auto stop announcement(SVASAS)-no interior display and/or no audio(using test button)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/ancillary_auto_stop"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Destination sign-no exterior sign and/or no audio(opens doors)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/ancillary_sign"
+            android:layout_weight="1" />
+
+        <Switch
+            android:text="Presto fare unit-not in service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:id="@+id/ancillary_presto"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -145,6 +145,8 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 				Toast.makeText(getApplicationContext(),
 						"NEW ACTIVITY WILL OPENS HERE, FILES ARE SENDING TO THE WEBSERVICE",
 						Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(getApplicationContext(), DefectReportActivity.class);
+				startActivity(intent);
 				sendFileToServer();
 			}
 		});
