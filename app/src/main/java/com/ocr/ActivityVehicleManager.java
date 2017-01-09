@@ -55,7 +55,7 @@ public class ActivityVehicleManager extends Activity implements View.OnFocusChan
 	private int[] mNumberButtonIds = {R.id.num0, R.id.num1, R.id.num2, R.id.num3, R.id.num4, R.id.num5,
 			R.id.num6, R.id.num7, R.id.num8, R.id.num9};
 	private AutoCompleteTextView mDefectsAutoTextView;
-	private String _strCol = "Vehicle ID" + ", " +
+	public static String _strCol = "Vehicle ID" + ", " +
 			"Vehicle Time" + ", " +
 			"OIL" + ", " +
 			"COOLANT" + ", " +

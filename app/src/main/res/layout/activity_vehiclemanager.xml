@@ -97,8 +97,8 @@
                             android:text="MILEAGE"
                             android:textColor="#aaa"/>
                         <EditText
-                            android:layout_width="50dp"
-                            android:maxLength="3"
+                            android:layout_width="100dp"
+                            android:maxLength="7"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_edit_white"
                             android:layout_marginLeft="5dp"
